@@ -33,3 +33,8 @@ CONTACT_EMAIL = "john.doe@example.com"
 CONTACT_SUBJECT = "Inquiry"
 CONTACT_MESSAGE = "I would like to know more about your services."
 FILE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'upload_files', 'uploadfile.txt'))
+
+## search data
+home_page_title = "Automation Exercise"
+products_page_link = "https://automationexercise.com/products"
+SEARCH_PRODUCT_NAME = "T-shirts"

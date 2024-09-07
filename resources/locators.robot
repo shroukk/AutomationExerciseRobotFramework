@@ -1,4 +1,6 @@
 *** Variables ***
+
+
 # Locators for Registration Page
 ${REGISTER_NAME_FIELD}            css=[data-qa="signup-name"]
 ${REGISTER_EMAIL_FIELD}           css=[data-qa="signup-email"]
@@ -47,3 +49,13 @@ ${CONTACT_UPLOAD_FIELD}         name=upload_file
 ${CONTACT_SUBMIT_BUTTON}        css=input[type="submit"]
 ${SUCCESS_MESSAGE_ELEMENT}      xpath=//div[contains(text(),'Success! Your details have been submitted successfully.')]
 ${HOME_BUTTON}                  xpath=//span[text()=" Home"]
+
+
+# Locators for search
+${URL}                         http://automationexercise.com
+${BROWSER}                     chrome
+${SEARCH_PAGE}                xpath=//a[@href='/products']
+${SEARCH_INPUT}               id=search_product
+${SUBMIT_SEARCH}              id=submit_search  
+${SEARCHED_PRODUCTS_TEXT}     xpath=//h2[text()='Searched Products']
+${SEARCHED_PRODUCTS}          xpath=//div[@class='features_items']/div

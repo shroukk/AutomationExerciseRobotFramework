@@ -8,7 +8,12 @@ Resource            ../resources/locators.robot
 
 
 *** Keywords ***
+Open Browser To Home Page
+    Open Browser    https://automationexercise.com/    chrome
+    Maximize Browser Window
 
+
+## registration keywords
 Open Browser To Registration Page
     Open Browser    https://automationexercise.com/login    chrome
     Maximize Browser Window
@@ -121,3 +126,29 @@ Click Home Button
 Verify Landed On Home Page
     Element Should Be Visible    ${HOME_PAGE_ELEMENT}
     Location Should Be    ${HOME_PAGE_URL}
+
+## Search Keywords
+
+Verify Home Page Title
+    Title Should Be    ${home_page_title}
+
+
+Click On Products Button
+    Click Element    ${SEARCH_PAGE}
+
+Verify User Navigated to ALL Products Page
+    Location Should Be    ${products_page_link}
+
+Enter Product Name And Click Search
+    Input Text    ${SEARCH_INPUT}    ${SEARCH_PRODUCT_NAME}
+    Click Button    ${SUBMIT_SEARCH}
+
+Verify Searched Products Are Visible
+    Element Should Be Visible    ${SEARCHED_PRODUCTS_TEXT}
+
+Verify Product Related To Search Is Visible
+    ${product}=    Get WebElement    css=[class="overlay-content"]>p
+    ${product_name}=    Get Text    ${product}
+    Log    Checking product: ${product_name}
+    Run Keyword If    "${SEARCH_PRODUCT_NAME}" in "${product_name}"    Log    Found product: ${product_name}
+    Run Keyword If    "${SEARCH_PRODUCT_NAME}" not in "${product_name}"    Fail    No product found with name ${SEARCH_PRODUCT_NAME}
